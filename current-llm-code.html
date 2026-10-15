@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win98 Project Documentation</title>
+    <!-- win98.css stylesheet via unpkg -->
+    <link rel="stylesheet" href="https://unpkg.com/win98.css">
+    <style>
+        body {
+            background-color: #C0C0C0; /* Classic Win98 System Grey */
+            font-family: "MS Sans Serif", Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Pixelated Win98-style hard borders */
+        .window {
+            border: 2px solid;
+            border-color: #dfdfdf #808080 #808080 #dfdfdf;
+            box-shadow: 1px 1px 0px 0px #000000;
+        }
+
+        /* Custom top-left layout for the header title bar */
+        #header-window .title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row-reverse; /* Puts controls on the left */
+        }
+
+        #header-window .title-bar-controls {
+            display: flex;
+            gap: 4px;
+        }
+
+        /* Larger custom toggle button */
+        #toggle-header-btn {
+            width: 24px;
+            height: 18px;
+            font-weight: bold;
+            font-size: 11px;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        /* Content Display Area */
+        .content-display {
+            min-height: 350px;
+        }
+
+        .page-pane {
+            display: none;
+        }
+
+        .page-pane.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- 1. HEADER WINDOW (Collapsible via Top-Left Button) -->
+        <div class="window" id="header-window">
+            <div class="title-bar">
+                <div class="title-bar-text">Control Panel</div>
+                <div class="title-bar-controls">
+                    <button id="toggle-header-btn" title="Minimize/Open Header">_</button>
+                </div>
+            </div>
+            <div class="window-body" id="header-body">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button style="flex: 1; padding: 8px;" onclick="showPage('page-home')">Home (0)</button>
+                    <button style="flex: 1; padding: 8px;" onclick="showPage('page-toc')">Table of Contents (1)</button>
+                    <button style="flex: 1; padding: 8px;" onclick="showPage('page-p2')">Page 2</button>
+                    <button style="flex: 1; padding: 8px;" onclick="showPage('page-p3')">Contacts</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. MAIN CONTENT WINDOW -->
+        <div class="window content-display">
+            <div class="title-bar">
+                <div class="title-bar-text" id="content-title">Main View - Home / 0x0</div>
+                <div class="title-bar-controls"></div>
+            </div>
+            <div class="window-body">
+                
+                <!-- HOME (0) -->
+                <div id="page-home" class="page-pane active">
+                    <h3>Home / 0x0</h3>
+                    <p>Welcome to the project documentation portal. Use the chunky control buttons in the header above to switch between views.</p>
+                    <fieldset>
+                        <legend>Status</legend>
+                        <p>Control panel can be toggled anytime using the larger <strong>[_]</strong> button on its top-left corner.</p>
+                    </fieldset>
+                </div>
+
+                <!-- TABLE OF CONTENTS (1) -->
+                <div id="page-toc" class="page-pane">
+                    <h3>Table of Contents</h3>
+                    <ul class="tree-view">
+                        <li><strong>Project Documentation</strong>
+                            <ul>
+                                <li><a href="#" onclick="showPage('page-home'); return false;">0. Home / 0x0</a></li>
+                                <li><a href="#" onclick="showPage('page-toc'); return false;">1. Table of Contents</a></li>
+                                <li><a href="#" onclick="showPage('page-p2'); return false;">2. Page Two</a></li>
+                                <li><a href="#" onclick="showPage('page-p3'); return false;">3. Contacts</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- PAGE 2 -->
+                <div id="page-p2" class="page-pane">
+                    <h3>Page 2 Content</h3>
+                    <p>Details and documentation specifics go here.</p>
+                </div>
+
+                <!-- PAGE 3 (CONTACTS / ANONYMOUS INQUIRY FORM) -->
+                <div id="page-p3" class="page-pane">
+                    <h3>Anonymous Contact & Inquiries</h3>
+                    <p>Have questions, feedback, or want to connect regarding the project? Leave your info below while keeping complete anonymity.</p>
+                    
+                    <form onsubmit="event.preventDefault(); alert('Transmission simulated! (Note: Hook up a backend service like Formspree or Web3Forms to receive live submissions securely).');">
+                        <div style="margin-bottom: 10px;">
+                            <label for="alias" style="display: block; margin-bottom: 4px;">Alias / Handle:</label>
+                            <input type="text" id="alias" placeholder="e.g. Anonymous Dev" style="width: 100%; padding: 4px; box-sizing: border-box;" required>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <label for="contact-info" style="display: block; margin-bottom: 4px;">Callback / Email (Optional):</label>
+                            <input type="text" id="contact-info" placeholder="e.g. secure-email@domain.com" style="width: 100%; padding: 4px; box-sizing: border-box;">
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <label for="message" style="display: block; margin-bottom: 4px;">Message / Inquiry:</label>
+                            <textarea id="message" rows="4" placeholder="Type your message here..." style="width: 100%; padding: 4px; box-sizing: border-box;" required></textarea>
+                        </div>
+                        <button type="submit" style="padding: 6px 14px;">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Minimize / Open Header Toggle Logic
+        const toggleBtn = document.getElementById('toggle-header-btn');
+        const headerBody = document.getElementById('header-body');
+        let headerOpen = true;
+
+        toggleBtn.addEventListener('click', () => {
+            headerOpen = !headerOpen;
+            if (headerOpen) {
+                headerBody.style.display = 'block';
+                toggleBtn.innerText = '_';
+            } else {
+                headerBody.style.display = 'none';
+                toggleBtn.innerText = '□';
+            }
+        });
+
+        // Page Switcher Logic
+        function showPage(pageId) {
+            // Hide all panes
+            document.querySelectorAll('.page-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            // Show target pane
+            document.getElementById(pageId).classList.add('active');
+
+            // Update title bar text accordingly
+            const titles = {
+                'page-home': 'Main View - Home / 0x0',
+                'page-toc': 'Main View - Table of Contents (1)',
+                'page-p2': 'Main View - Page 2',
+                'page-p3': 'Main View - Contacts'
+            };
+            document.getElementById('content-title').innerText = titles[pageId] || 'Main View';
+        }
+    </script>
+</body>
+</html>
