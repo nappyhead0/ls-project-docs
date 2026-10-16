@@ -34,12 +34,12 @@
             box-shadow: 1px 1px 0px 0px #000000;
         }
 
-        /* Custom top-left layout for the header title bar */
+        /* Custom layout for header title bar: controls on left, title on RHS */
         #header-window .title-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-direction: row-reverse; /* Puts controls on the left */
+            flex-direction: row-reverse; /* Puts controls on the left, title on RHS */
         }
 
         #header-window .title-bar-controls {
@@ -47,9 +47,9 @@
             gap: 4px;
         }
 
-        /* Larger custom toggle button */
+        /* Larger custom toggle button (31px wide) */
         #toggle-header-btn {
-            width: 24px;
+            width: 31px;
             height: 18px;
             font-weight: bold;
             font-size: 11px;
@@ -69,6 +69,27 @@
         .page-pane.active {
             display: block;
         }
+
+        .photo-gallery {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .photo-card {
+            background: #dfdfdf;
+            border: 2px solid;
+            border-color: #fff #808080 #808080 #fff;
+            padding: 8px;
+            max-width: 350px;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #808080;
+        }
     </style>
 </head>
 <body>
@@ -78,17 +99,17 @@
         <!-- 1. HEADER WINDOW (Collapsible via Top-Left Button) -->
         <div class="window" id="header-window">
             <div class="title-bar">
-                <div class="title-bar-text">Control Panel</div>
+                <div class="title-bar-text" id="header-title-text">Home - 0x0</div>
                 <div class="title-bar-controls">
                     <button id="toggle-header-btn" title="Minimize/Open Header">_</button>
                 </div>
             </div>
             <div class="window-body" id="header-body">
                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <button style="flex: 1; padding: 8px;" onclick="showPage('page-home')">Home (0)</button>
-                    <button style="flex: 1; padding: 8px;" onclick="showPage('page-toc')">Table of Contents (1)</button>
-                    <button style="flex: 1; padding: 8px;" onclick="showPage('page-p2')">Page 2</button>
-                    <button style="flex: 1; padding: 8px;" onclick="showPage('page-p3')">Contacts</button>
+                    <button style="flex: 1; padding: 8px;" onclick="showPage('page-home', 'Home - 0x0')">Home - 0x0</button>
+                    <button style="flex: 1; padding: 8px;" onclick="showPage('page-toc', 'Table of Contents - 0x1')">Table of Contents - 0x1</button>
+                    <button style="flex: 1; padding: 8px;" onclick="showPage('page-sources', 'Sources - 0x5')">Sources - 0x5</button>
+                    <button style="flex: 1; padding: 8px;" onclick="showPage('page-contacts', 'Contacts - 0x6')">Contacts - 0x6</button>
                 </div>
             </div>
         </div>
@@ -101,43 +122,119 @@
             </div>
             <div class="window-body">
                 
-                <!-- HOME (0) -->
+                <!-- HOME (0x0) -->
                 <div id="page-home" class="page-pane active">
-                    <h3>Home / 0x0</h3>
-                    <p>Welcome to the project documentation portal. Use the chunky control buttons in the header above to switch between views.</p>
-                    <fieldset>
-                        <legend>Status</legend>
-                        <p>Control panel can be toggled anytime using the larger <strong>[_]</strong> button on its top-left corner.</p>
+                    <!-- Breathing room from the window border -->
+                    <fieldset style="margin-top: 10px; margin-bottom: 15px; background: #e8e8e8;">
+                        <legend style="font-weight: bold;">Core Project Goal</legend>
+                        <p style="font-size: 14px; margin: 5px 0;"><strong>- Get the LQ9 running on pump gas</strong></p>
+                    </fieldset>
+
+                    <fieldset style="margin-bottom: 15px;">
+                        <legend style="font-weight: bold;">To-Do</legend>
+                        <ul style="margin: 5px 0; padding-left: 20px;">
+                            <li><a href="#" onclick="showPage('page-fuel', 'Fuel System - 0x2'); return false;">Fuel System - 0x2</a></li>
+                            <li><a href="#" onclick="showPage('page-wiring', 'Wiring Harness - 0x3'); return false;">Wiring Harness - 0x3</a></li>
+                            <li><a href="#" onclick="showPage('page-cooling', 'Cooling System - 0x4'); return false;">Cooling System - 0x4</a></li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset style="margin-bottom: 15px;">
+                        <legend style="font-weight: bold;">Already Done</legend>
+                        <p style="margin: 5px 0;">
+                            Rebuilt a small block Chevy (SBC) over 5 weeks with instruction at school (August – September 2025).
+                        </p>
+                        
+                        <!-- Embedded Video Player -->
+                        <div style="margin: 10px 0;">
+                            <p style="font-size: 12px; margin: 0 0 4px 0;"><strong>Video: SBC Running (End of Sep 2025)</strong></p>
+                            <iframe src="https://drive.google.com/file/d/1Nyx-gzzkCYfKVAvGJWsasZbZTw7tVRuK/preview" width="100%" height="260" style="border: 2px inset #fff;" allow="autoplay"></iframe>
+                        </div>
+
+                        <p style="margin: 10px 0 5px 0;">
+                            Shortly after completing the SBC project, acquired a stock 2003 LQ9 engine pulled from a Cadillac Escalade at a local Pick-n-Pull.
+                        </p>
+                        
+                        <div class="photo-gallery">
+                            <div class="photo-card">
+                                <img src="https://raw.githubusercontent.com/nappyhead0/ls-project-docs/main/image_9bc31d.jpg" alt="LQ9 Motor on U-Haul Trailer">
+                                <p style="font-size: 12px; margin: 5px 0 0 0; text-align: center;"><strong>LQ9 on U-Haul trailer</strong></p>
+                            </div>
+                            <div class="photo-card">
+                                <img src="https://raw.githubusercontent.com/nappyhead0/ls-project-docs/main/image_9bc35a.jpg" alt="LQ9 Motor on Engine Stand in Garage">
+                                <p style="font-size: 12px; margin: 5px 0 0 0; text-align: center;"><strong>LQ9 on engine stand in garage</strong></p>
+                            </div>
+                        </div>
                     </fieldset>
                 </div>
 
-                <!-- TABLE OF CONTENTS (1) -->
+                <!-- TABLE OF CONTENTS (0x1) -->
                 <div id="page-toc" class="page-pane">
-                    <h3>Table of Contents</h3>
+                    <h3>Table of Contents - 0x1</h3>
+                    <p>Quick access navigation for project documentation:</p>
                     <ul class="tree-view">
                         <li><strong>Project Documentation</strong>
                             <ul>
-                                <li><a href="#" onclick="showPage('page-home'); return false;">0. Home / 0x0</a></li>
-                                <li><a href="#" onclick="showPage('page-toc'); return false;">1. Table of Contents</a></li>
-                                <li><a href="#" onclick="showPage('page-p2'); return false;">2. Page Two</a></li>
-                                <li><a href="#" onclick="showPage('page-p3'); return false;">3. Contacts</a></li>
+                                <li><a href="#" onclick="showPage('page-home', 'Home - 0x0'); return false;">0x0 - Home</a></li>
+                                <li><a href="#" onclick="showPage('page-toc', 'Table of Contents - 0x1'); return false;">0x1 - Table of Contents</a></li>
+                                <li><a href="#" onclick="showPage('page-fuel', 'Fuel System - 0x2'); return false;">0x2 - Fuel System</a></li>
+                                <li><a href="#" onclick="showPage('page-wiring', 'Wiring Harness - 0x3'); return false;">0x3 - Wiring Harness</a></li>
+                                <li><a href="#" onclick="showPage('page-cooling', 'Cooling System - 0x4'); return false;">0x4 - Cooling System</a></li>
+                                <li><a href="#" onclick="showPage('page-sources', 'Sources - 0x5'); return false;">0x5 - Sources</a></li>
+                                <li><a href="#" onclick="showPage('page-contacts', 'Contacts - 0x6'); return false;">0x6 - Contacts</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
 
-                <!-- PAGE 2 -->
-                <div id="page-p2" class="page-pane">
-                    <h3>Page 2 Content</h3>
-                    <p>Details and documentation specifics go here.</p>
+                <!-- FUEL SYSTEM (0x2) -->
+                <div id="page-fuel" class="page-pane">
+                    <h3>Fuel System - 0x2</h3>
+                    <p>Tracking components, plumbing, regulators, and pressure setup required for the LQ9 fuel delivery system.</p>
+                    
+                    <!-- Fuel System Plumbing Diagram -->
+                    <fieldset style="margin-top: 15px;">
+                        <legend style="font-weight: bold;">Fuel System Plumbing Diagram</legend>
+                        <div style="margin-top: 10px; text-align: center;">
+                            <img src="https://raw.githubusercontent.com/nappyhead0/ls-project-docs/main/e85plumb.jpg" alt="Fuel System Plumbing Diagram" style="max-width: 100%; height: auto; border: 2px inset #fff;">
+                        </div>
+                    </fieldset>
                 </div>
 
-                <!-- PAGE 3 (CONTACTS / ANONYMOUS INQUIRY FORM) -->
-                <div id="page-p3" class="page-pane">
-                    <h3>Anonymous Contact & Inquiries</h3>
+                <!-- WIRING HARNESS (0x3) -->
+                <div id="page-wiring" class="page-pane">
+                    <h3>Wiring Harness - 0x3</h3>
+                    <p>Notes, pinouts, fuse box layouts, and modification guides for the engine wiring harness.</p>
+                </div>
+
+                <!-- COOLING SYSTEM (0x4) -->
+                <div id="page-cooling" class="page-pane">
+                    <h3>Cooling System - 0x4</h3>
+                    <!-- Blank page placeholder -->
+                </div>
+
+                <!-- SOURCES (0x5) -->
+                <div id="page-sources" class="page-pane">
+                    <h3>Sources - 0x5</h3>
+                    <p>Reference materials, documentation links, and research logs utilized throughout the project lifecycle.</p>
+                    <ul>
+                        <li>GM LS / Vortec Gen 3 Technical Manuals</li>
+                        <li>Wiring Schematics & Pinout References</li>
+                        <li>Chat Logs & Collaborative Research Notes</li>
+                    </ul>
+                </div>
+
+                <!-- CONTACTS (0x6) -->
+                <div id="page-contacts" class="page-pane">
+                    <h3>Anonymous Contact & Inquiries - 0x6</h3>
                     <p>Have questions, feedback, or want to connect regarding the project? Leave your info below while keeping complete anonymity.</p>
                     
-                    <form onsubmit="event.preventDefault(); alert('Transmission simulated! (Note: Hook up a backend service like Formspree or Web3Forms to receive live submissions securely).');">
+                    <fieldset style="background: #ffcccc; border: 2px solid #cc0000; margin-bottom: 15px; padding: 10px;">
+                        <legend style="color: #cc0000; font-weight: bold;">NOTICE</legend>
+                        <p style="margin: 0; color: #990000; font-weight: bold;">This contact form is currently NOT operational right now.</p>
+                    </fieldset>
+
+                    <form onsubmit="event.preventDefault(); alert('Form is non-operational. Transmission simulated only.');">
                         <div style="margin-bottom: 10px;">
                             <label for="alias" style="display: block; margin-bottom: 4px;">Alias / Handle:</label>
                             <input type="text" id="alias" placeholder="e.g. Anonymous Dev" style="width: 100%; padding: 4px; box-sizing: border-box;" required>
@@ -177,20 +274,27 @@
         });
 
         // Page Switcher Logic
-        function showPage(pageId) {
-            // Hide all panes
+        function showPage(pageId, headerTitle) {
             document.querySelectorAll('.page-pane').forEach(pane => {
                 pane.classList.remove('active');
             });
-            // Show target pane
-            document.getElementById(pageId).classList.add('active');
+            const targetPane = document.getElementById(pageId);
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
 
-            // Update title bar text accordingly
+            // Update Header Title (RHS)
+            document.getElementById('header-title-text').innerText = headerTitle;
+
+            // Update Main Content Window Title accordingly
             const titles = {
                 'page-home': 'Main View - Home / 0x0',
-                'page-toc': 'Main View - Table of Contents (1)',
-                'page-p2': 'Main View - Page 2',
-                'page-p3': 'Main View - Contacts'
+                'page-toc': 'Main View - Table of Contents / 0x1',
+                'page-fuel': 'Main View - Fuel System / 0x2',
+                'page-wiring': 'Main View - Wiring Harness / 0x3',
+                'page-cooling': 'Main View - Cooling System / 0x4',
+                'page-sources': 'Main View - Sources / 0x5',
+                'page-contacts': 'Main View - Contacts / 0x6'
             };
             document.getElementById('content-title').innerText = titles[pageId] || 'Main View';
         }
