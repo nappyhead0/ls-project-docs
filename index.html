@@ -128,35 +128,72 @@
                         <legend style="font-weight: bold;">To-Do</legend>
                         <ul style="margin: 5px 0; padding-left: 20px;">
                             <li><a href="#" onclick="showPage('page-fuel', 'Fuel System - 0x2'); return false;">Fuel System - 0x2</a></li>
-                            <li><a href="#" onclick="showPage('page-wiring', 'Wiring Harness - 0x3'); return false;">Wiring Harness - 0x3</a></li>
+                            <li><a href="#" onclick="showPage('page-wiring', 'Wiring - 0x3'); return false;">Wiring - 0x3</a></li>
                             <li><a href="#" onclick="showPage('page-cooling', 'Cooling System - 0x4'); return false;">Cooling System - 0x4</a></li>
                         </ul>
                     </fieldset>
 
                     <fieldset style="margin-bottom: 15px;">
-                        <legend style="font-weight: bold;">Already Done</legend>
-                        <p style="margin: 5px 0;">
-                            Rebuilt a small block Chevy (SBC) over 5 weeks with instruction at school (August – September 2025).
-                        </p>
+                        <legend style="font-weight: bold;">Already Done & Recent Progress</legend>
                         
-                        <!-- Local Native Video Player -->
-                        <div style="margin: 10px 0;">
-                            <p style="font-size: 12px; margin: 0 0 4px 0;"><strong>Video: SBC Running (End of Sep 2025)</strong></p>
-                            <video width="100%" height="260" controls style="border: 2px inset #fff; background: #000;">
-                                <source src="media/index/IMG_8743.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
+                        <!-- 1. Side-by-Side PCM Bench Test Photo at the Top -->
+                        <div style="margin-bottom: 15px; border-bottom: 1px solid #808080; padding-bottom: 12px;">
+                            <p style="font-size: 12px; margin: 0 0 8px 0;"><strong>Recent Milestone: PCM Bench Test & Scan Tool Verification</strong></p>
+                            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center;">
+                                <div style="flex: 1; min-width: 220px;">
+                                    <p style="font-size: 13px; margin: 0;">
+                                        Wired the PCM to the aftermarket standalone harness on the bench and hooked up an Autel scan tool to verify the PCM is fully functional and ready for engine integration (see <a href="#" onclick="showPage('page-wiring', 'Wiring - 0x3'); return false;">Wiring - 0x3</a>).
+                                    </p>
+                                </div>
+                                <div style="width: 200px; max-width: 100%;">
+                                    <div class="photo-card" style="margin-top: 0;">
+                                        <img src="media/wiring/pcmBenchTest.jpg" alt="PCM Bench Test Setup with Scan Tool">
+                                        <p style="font-size: 11px; margin: 4px 0 0 0; text-align: center;"><strong>PCM bench test</strong></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <p style="margin: 10px 0 5px 0;">
-                            Shortly after completing the SBC project, acquired a stock 2003 LQ9 engine pulled from a Cadillac Escalade at a local Pick-n-Pull.
-                        </p>
-                        
-                        <!-- Single Garage Photo (IMG_5316) -->
-                        <div class="photo-card">
+                        <!-- 2. Garage Photo -->
+                        <div class="photo-card" style="margin-bottom: 15px;">
                             <img src="media/index/IMG_5316.jpeg" alt="LQ9 Motor on Engine Stand in Garage">
                             <p style="font-size: 12px; margin: 5px 0 0 0; text-align: center;"><strong>LQ9 on engine stand in garage</strong></p>
                         </div>
+
+                        <!-- 3. Acquisition text -->
+                        <p style="margin: 10px 0;">
+                            Acquired a stock 2003 LQ9 engine pulled from a Cadillac Escalade at a local Pick-n-Pull shortly after completing a small block Chevy (SBC) engine rebuild over 5 weeks of school instruction (August – September 2025).
+                        </p>
+
+                        <!-- 4. Next Steps -->
+                        <div style="background: #e0e0e0; border: 1px inset #fff; padding: 8px; margin: 10px 0;">
+                            <p style="font-size: 13px; margin: 0 0 4px 0;"><strong>Next Up:</strong></p>
+                            <ul style="font-size: 13px; margin: 0; padding-left: 20px;">
+                                <li>Attach wiring harness to the motor</li>
+                                <li>Create and mount a custom plywood control panel</li>
+                                <li>Mount the PCM using a custom 3D-printed bracket</li>
+                                <li>Wire up the ignition switch and starter</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- 5. Side-by-Side Video Section at the Bottom -->
+                        <div style="margin: 15px 0 5px 0; border-top: 1px solid #808080; padding-top: 10px;">
+                            <p style="font-size: 12px; margin: 0 0 8px 0;"><strong>Archive Video: SBC Running (End of Sep 2025)</strong></p>
+                            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center;">
+                                <div style="flex: 1; min-width: 220px;">
+                                    <p style="font-size: 13px; margin: 0;">
+                                        Testing the small block Chevy build on the stand right after school completion.
+                                    </p>
+                                </div>
+                                <div style="width: 180px; max-width: 100%;">
+                                    <video width="100%" controls style="border: 2px inset #fff; background: #000; display: block;">
+                                        <source src="media/index/IMG_8743.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+
                     </fieldset>
                 </div>
 
@@ -170,7 +207,7 @@
                                 <li><a href="#" onclick="showPage('page-home', 'Home - 0x0'); return false;">0x0 - Home</a></li>
                                 <li><a href="#" onclick="showPage('page-toc', 'Table of Contents - 0x1'); return false;">0x1 - Table of Contents</a></li>
                                 <li><a href="#" onclick="showPage('page-fuel', 'Fuel System - 0x2'); return false;">0x2 - Fuel System</a></li>
-                                <li><a href="#" onclick="showPage('page-wiring', 'Wiring Harness - 0x3'); return false;">0x3 - Wiring Harness</a></li>
+                                <li><a href="#" onclick="showPage('page-wiring', 'Wiring - 0x3'); return false;">0x3 - Wiring</a></li>
                                 <li><a href="#" onclick="showPage('page-cooling', 'Cooling System - 0x4'); return false;">0x4 - Cooling System</a></li>
                                 <li><a href="#" onclick="showPage('page-sources', 'Sources - 0x5'); return false;">0x5 - Sources</a></li>
                                 <li><a href="#" onclick="showPage('page-contacts', 'Contacts - 0x6'); return false;">0x6 - Contacts</a></li>
@@ -193,10 +230,22 @@
                     </fieldset>
                 </div>
 
-                <!-- WIRING HARNESS (0x3) -->
+                <!-- WIRING (0x3) -->
                 <div id="page-wiring" class="page-pane">
-                    <h3>Wiring Harness - 0x3</h3>
+                    <h3>Wiring - 0x3</h3>
                     <p>Notes, pinouts, fuse box layouts, and modification guides for the engine wiring harness.</p>
+                    
+                    <!-- PCM Bench Test & Scan Tool Verification -->
+                    <fieldset style="margin-top: 15px;">
+                        <legend style="font-weight: bold;">PCM Bench Test & Scan Tool Verification</legend>
+                        <p style="margin: 5px 0;">
+                            Wired the PCM to the aftermarket standalone harness on the bench and hooked up an Autel scan tool to verify the PCM is functional and ready for engine integration.
+                        </p>
+                        <div class="photo-card" style="margin-top: 10px;">
+                            <img src="media/wiring/pcmBenchTest.jpg" alt="PCM Bench Test Setup with Scan Tool">
+                            <p style="font-size: 12px; margin: 5px 0 0 0; text-align: center;"><strong>PCM bench test setup and scan tool verification</strong></p>
+                        </div>
+                    </fieldset>
                 </div>
 
                 <!-- COOLING SYSTEM (0x4) -->
@@ -283,7 +332,7 @@
                 'page-home': 'Main View - Home / 0x0',
                 'page-toc': 'Main View - Table of Contents / 0x1',
                 'page-fuel': 'Main View - Fuel System / 0x2',
-                'page-wiring': 'Main View - Wiring Harness / 0x3',
+                'page-wiring': 'Main View - Wiring / 0x3',
                 'page-cooling': 'Main View - Cooling System / 0x4',
                 'page-sources': 'Main View - Sources / 0x5',
                 'page-contacts': 'Main View - Contacts / 0x6'
